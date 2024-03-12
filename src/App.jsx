@@ -46,7 +46,7 @@ function App() {
   };
   return (
     <div className="flex flex-col gap-10 m-20 w-5/6 shadow-2xl px-2 py-5">
-      <form>
+      <form className="flex flex-col gap-10">
         {/* Business Owner*/}
         <div className="border border-blue-600">
           <h1 className="form-Header bg-blue-400 text-start font-semibold text-blue-800 px-5 py-2">
