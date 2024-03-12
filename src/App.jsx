@@ -11,16 +11,37 @@ function App() {
   const [phone, setPhone] = useState();
   const [email, setEmail] = useState();
   const [Location, setLocation] = useState();
+  const [btype, setBtype] = useState();
+  const [cname, setCname] = useState();
+  const [tin, setTin] = useState();
+  const [date, setDate] = useState();
+  const [Location2, setLocation2] = useState();
+  const [quantity, setQuantity] = useState();
+  const [pCategory, setPCategory] = useState();
+  const [weight, setWeight] = useState();
+  const [Description, setDescription] = useState();
+  const [unit, setUnity] = useState();
+  const [pname, setPname] = useState();
 
   const handleSubmit = () => {
     console.log(
       citizenship,
+      passport,
+      Identification,
       surname,
       othername,
       nationality,
       phone,
       email,
-      Location
+      Location,
+      btype,
+      cname,
+      tin,
+      date,
+      Location2,quantity,
+      pCategory,
+      weight,Description,
+      unit,pname
     );
   };
   return (
@@ -95,7 +116,7 @@ function App() {
                     required
                   />
                 </div>
-                {citizenship !== "Rwandan" || citizenship == "" ? (
+                {citizenship == "Rwandan" ? (
                   <div className="flex flex-col ">
                     <label
                       className="block  tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -113,7 +134,7 @@ function App() {
                   </div>
                 ) : null}
               </div>
-              {citizenship !== "Rwandan" ? (
+              {citizenship == "Rwandan" ? (
                 <div className="flex">
                   <div className="w-full md:w-1/2 px-3">
                     <label
@@ -229,11 +250,12 @@ function App() {
                 </label>
                 <div className="relative">
                   <select
+                    onChange={(e) => setBtype(e.target.value)}
                     className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state required">
-                    <option>Business Type</option>
-                    <option>Retailer</option>
-                    <option>Wholesale</option>
+                    <option value="">Business Type</option>
+                    <option value="Retailer">Retailer</option>
+                    <option value="Wholesale">Wholesale</option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <svg
@@ -253,6 +275,7 @@ function App() {
                     Company name <span className="text-red-500 pl-1">*</span>
                   </label>
                   <input
+                    onChange={(e) => setCname(e.target.value)}
                     className="appearance-none block w-full bg-gray-200 text-gray-700 borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                     id="grid-first-name"
                     type="text"
@@ -267,6 +290,7 @@ function App() {
                     TIN number<span className="text-red-500 pl-1">*</span>
                   </label>
                   <input
+                    onChange={(e) => setTin(e.target.value)}
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-last-name"
                     type="text"
@@ -285,6 +309,7 @@ function App() {
                     <span className="text-red-500 pl-1">*</span>
                   </label>
                   <input
+                    onChange={(e) => setDate(e.target.value)}
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-last-name"
                     type="date"
@@ -298,6 +323,7 @@ function App() {
                     Location<span className="text-red-500 pl-1">*</span>
                   </label>
                   <input
+                    onChange={(e) => setLocation2(e.target.value)}
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-last-name"
                     type="text"
@@ -326,13 +352,13 @@ function App() {
                   Product category<span className="text-red-500 pl-1">*</span>
                 </label>
                 <div className="relative">
-                  <select
+                  <select  onChange={(e)=> setPCategory(e.target.value)}
                     className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state required">
-                    <option>Select product category</option>
-                    <option>General purpose</option>
-                    <option>Construction</option>
-                    <option>Chemicals</option>
+                    <option value="">Select product category</option>
+                    <option value="General purpose">General purpose</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Chemicals">Chemicals</option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <svg
@@ -352,7 +378,7 @@ function App() {
                     Product name
                     <span className="text-red-500 pl-1">*</span>
                   </label>
-                  <input
+                  <input  onChange={(e)=> setPname(e.target.value)}
                     className="appearance-none block w-full bg-gray-200 text-gray-700 borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                     id="grid-first-name"
                     type="text"
@@ -366,7 +392,7 @@ function App() {
                     htmlFor="grid-last-name">
                     Weight<span className="text-red-500 pl-1">*</span>
                   </label>
-                  <input
+                  <input  onChange={(e)=> setWeight(e.target.value)}
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-last-name"
                     type="text"
@@ -384,7 +410,7 @@ function App() {
                     Quantity of product
                     <span className="text-red-500 pl-1">*</span>
                   </label>
-                  <input
+                  <input  onChange={(e)=> setQuantity(e.target.value)}
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-last-name"
                     type="text"
@@ -400,12 +426,12 @@ function App() {
                     <span className="text-red-500 pl-1">*</span>
                   </label>
                   <div className="relative">
-                    <select
+                    <select  onChange={(e)=> setUnity(e.target.value)}
                       className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       id="grid-state required">
-                      <option>Enter unit of measurement</option>
-                      <option>Kgs</option>
-                      <option>tones</option>
+                      <option value="">Enter unit of measurement</option>
+                      <option value="Kgs">Kgs</option>
+                      <option value="tones">tones</option>
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                       <svg
@@ -426,7 +452,7 @@ function App() {
                     Description of products
                     <span className="text-red-500 pl-1">*</span>
                   </label>
-                  <textarea
+                  <textarea  onChange={(e)=> setDescription(e.target.value)}
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-last-name"
                     type="textArea"
@@ -438,11 +464,10 @@ function App() {
             </div>
           </div>
         </div>
-        
+
         <div className="flex justify-end">
           <button
             onClick={handleSubmit}
-            type="submit"
             className="w-1/6  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
             Submit
           </button>
